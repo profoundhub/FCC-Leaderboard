@@ -1,4 +1,4 @@
-# FCC Leaderboard
+# FCC Leaderboard (Build an FCC Camper Leaderboard!)
 
 Started on Friday, Sept. 23rd, 2016
 
@@ -15,3 +15,5 @@ Started on Friday, Sept. 23rd, 2016
 * Babel: (Pre Processor)
 * React: https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js
 * ReactDOM: https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js
+
+##### Source: https://www.freecodecamp.com/challenges/build-a-camper-leaderboard

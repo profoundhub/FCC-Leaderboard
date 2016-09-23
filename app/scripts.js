@@ -5,5 +5,5 @@ class LeaderBoard extends React.Component{
 }
 
 ReactDOM.render(
-  <Leader/>,document.getElementById('leaderboard')
+  <LeaderBoard />,document.getElementById('leaderboard')
 );
