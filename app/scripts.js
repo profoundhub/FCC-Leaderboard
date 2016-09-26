@@ -1,15 +1,15 @@
 const leaderboard = document.getElementById("leaderboard");
 
-let daniel = "http://www.freecodecamp.com/profoundhub";
-let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
-let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
+const daniel = "http://www.freecodecamp.com/profoundhub";
+const recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
+const alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
 
 var TableTop = React.createClass({
   change: function(x) {
     this.props.changeSrc(x);
   },
 
-  render: function(){
+  render: function() {
     return (
       <tr id="header">
         <th>Rank</th>
@@ -17,17 +17,16 @@ var TableTop = React.createClass({
         <th>UserName</th>
         <th onClick = { this.change.bind(this, alltime) }>
           <i className="fa fa-check" aria-hidden="true"></i>
-            <a>All Time</a>
+            <a className="hvr-pulse">All Time</a>
         </th>
         <th onClick = { this.change.bind(this, recent) }>
           <i className="fa fa-check" aria-hidden="true"></i>
-            <a>Recent</a>
+            <a className="hvr-pulse">Recent</a>
         </th>
       </tr>
     );
   }
 });
-
 
 var Template = React.createClass({
   render: function() {
@@ -61,7 +60,6 @@ var Template = React.createClass({
   }
 });
 
-
 var LeaderBoard = React.createClass({
   getInitialState: function() {
     return {
@@ -72,24 +70,49 @@ var LeaderBoard = React.createClass({
 
   componentDidMount: function() {
     this.changeSrc(this.state.source);
-  }
+  },
 
-});
+  changeSrc: function(x) {
+    this.serverRequest = $.get(x, function (result) {
+      this.setState({
+        data: result
+      });
+    }.bind(this));
+  },
 
-class Footer extends React.Component {
-  render() {
+  render: function() {
     return (
-      <footer>
-        <div className="container-fluid">
-          <p>By: <a href="http://www.freecodecamp.com/profoundhub" target="_blank">Daniel Lim</a></p>
-        </div>
-      </footer>
+      <div>
+        <h1 className="center-this">Build an FCC Camper Leaderboard!</h1>
+          <table>
+            <TableTop changeSrc = { this.changeSrc.bind(this) } />
+            {
+              this.state.data.map(function(curr, index) {
+                return <Template index = { index + 1 } data = { curr } />;
+              })
+            }
+          </table>
+      </div>
     );
   }
-}
+});
+
+var Footer = React.createClass({
+  render: function() {
+    return(
+      <div>
+        <br /><hr /><br />
+        <footer className="well">
+          <p className="text-center">&copy; 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved</p>
+        </footer>
+      </div>
+    )
+  }
+});
 
 ReactDOM.render(
-  /* <Template />
-  <Footer /> */
-  <LeaderBoard />, leaderboard
+  <div>
+    <LeaderBoard />
+    <Footer />
+  </div>, leaderboard
 );
