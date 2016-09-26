@@ -1,3 +1,8 @@
+const leaderboard = document.getElementById("leaderboard");
+
+let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent"
+let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime"
+
 class Template extends React.Component {
   render() {
     return <div> </div>;
@@ -32,9 +37,8 @@ class Footer extends React.Component {
   }
 }
 
-
 ReactDOM.render(
   <Template />,
-  <LeaderBoard />, document.getElementById('leaderboard'),
+  <LeaderBoard />, leaderboard,
   <Footer />
 );
