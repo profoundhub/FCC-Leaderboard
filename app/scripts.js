@@ -1,7 +1,8 @@
 const leaderboard = document.getElementById("leaderboard");
 
-let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent"
-let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime"
+let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
+
+let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
 
 class Template extends React.Component {
   render() {
@@ -30,7 +31,7 @@ class Footer extends React.Component {
     return (
       <footer>
         <div className="container-fluid">
-          <p>By: <a href="http://www.freecodecamp.com/profoundhub" target="_blank">Daniel</a></p>
+          <p>By: <a href="http://www.freecodecamp.com/profoundhub" target="_blank">Daniel Lim</a></p>
         </div>
       </footer>
     );
