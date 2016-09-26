@@ -72,7 +72,7 @@ var LeaderBoard = React.createClass({
 
   componentDidMount: function() {
     this.changeSrc(this.state.source);
-  },
+  }
 
 });
 
