@@ -28,27 +28,53 @@ var TableTop = React.createClass({
   }
 });
 
-class Template extends React.Component {
-  render() {
-    return <div> </div>;
-  }
-  /*
-  componentWillMount: function() {
-    this.serverRequest1 = $.ajax({
-      type: 'GET',
-      url: 'https://fcctop100.herokuapp.com/api/fccusers/top/recent',
-      success: function(data) {
-        let count = 1;
-      }
-    }) */
-}
 
-class LeaderBoard extends React.Component{
-  render(){
-    return <h1>Build an FCC Camper Leaderboard!</h1>
+var Template = React.createClass({
+  render: function() {
+    return (
+      <tr>
+        <td>
+          { this.props.index }
+        </td>
+        <td>
+          <p>
+            <img src={ this.props.data["img"] } />
+          </p>
+        </td>
+        <td>
+          <p>
+            { this.props.data["username"] }
+          </p>
+        </td>
+        <td>
+          <p>
+            { this.props.data["alltime"] }
+          </p>
+        </td>
+        <td>
+          <p>
+            { this.props.data["recent"] }
+          </p>
+        </td>
+      </tr>
+    );
   }
-}
+});
 
+
+var LeaderBoard = React.createClass({
+  getInitialState: function() {
+    return {
+      source: recent,
+      data: [],
+    };
+  },
+
+  componentDidMount: function() {
+    this.changeSrc(this.state.source);
+  },
+
+});
 
 class Footer extends React.Component {
   render() {
@@ -63,7 +89,7 @@ class Footer extends React.Component {
 }
 
 ReactDOM.render(
-  <Template />,
-  <LeaderBoard />, leaderboard,
-  <Footer />
+  /* <Template />
+  <Footer /> */
+  <LeaderBoard />, leaderboard
 );
