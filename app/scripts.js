@@ -84,7 +84,7 @@ class Footer extends React.Component {
 }
 
 ReactDOM.render(
-  <Template />
-  <Footer />
-  <LeaderBoard />, leaderboard,
+  /* <Template />
+  <Footer /> */
+  <LeaderBoard />, leaderboard
 );
