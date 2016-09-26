@@ -69,6 +69,11 @@ var LeaderBoard = React.createClass({
       data: [],
     };
   },
+
+  componentDidMount: function() {
+    this.changeSrc(this.state.source);
+  },
+
 });
 
 class Footer extends React.Component {
