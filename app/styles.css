@@ -1,3 +1,8 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+}
+
 header {
   background-image: url("https://s3.amazonaws.com/freecodecamp/freecodecamp_logo.svg");
   background-repeat: no-repeat;
