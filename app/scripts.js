@@ -1,8 +1,32 @@
 const leaderboard = document.getElementById("leaderboard");
 
+let daniel = "http://www.freecodecamp.com/profoundhub";
 let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
-
 let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
+
+var TableTop = React.createClass({
+  change: function(x) {
+    this.props.changeSrc(x);
+  },
+
+  render: function(){
+    return (
+      <tr id="header">
+        <th>Rank</th>
+        <th>Avatar</th>
+        <th>UserName</th>
+        <th onClick = { this.change.bind(this, alltime) }>
+          <i className="fa fa-check" aria-hidden="true"></i>
+            <a>All Time</a>
+        </th>
+        <th onClick = { this.change.bind(this, recent) }>
+          <i className="fa fa-check" aria-hidden="true"></i>
+            <a>Recent</a>
+        </th>
+      </tr>
+    );
+  }
+});
 
 class Template extends React.Component {
   render() {
