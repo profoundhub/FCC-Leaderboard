@@ -15,14 +15,17 @@ var TableTop = React.createClass({
         <th>Rank</th>
         <th>Avatar</th>
         <th>UserName</th>
-        <th onClick = { this.change.bind(this, alltime) }>
-          <i className="fa fa-check" aria-hidden="true"></i>
-            <a className="hvr-pulse">All Time</a>
-        </th>
+
         <th onClick = { this.change.bind(this, recent) }>
           <i className="fa fa-check" aria-hidden="true"></i>
             <a className="hvr-pulse">Recent</a>
         </th>
+
+        <th onClick = { this.change.bind(this, alltime) }>
+          <i className="fa fa-check" aria-hidden="true"></i>
+            <a className="hvr-pulse">All Time</a>
+        </th>
+
       </tr>
     );
   }
@@ -35,14 +38,14 @@ var Template = React.createClass({
         <td>
           { this.props.index }
         </td>
-        <td>
+        <td className="user">
           <p>
-            <img src={ this.props.data["img"] } />
+            <a href={"https://www.freecodecamp.com/" + this.props.data["username"] } target="_blank" className="fullOp"><img className="fullOp" src={ this.props.data["img"] } /></a>
           </p>
         </td>
-        <td>
+        <td className="user">
           <p>
-            { this.props.data["username"] }
+            <a href={"https://www.freecodecamp.com/" + this.props.data["username"] } target="_blank" className="userNames">{ this.props.data["username"] }</a>
           </p>
         </td>
         <td>
@@ -84,7 +87,7 @@ var LeaderBoard = React.createClass({
     return (
       <div>
         <h1 className="center-this">Build an FCC Camper Leaderboard!</h1>
-          <table>
+          <table className="table gradeLogic">
             <TableTop changeSrc = { this.changeSrc.bind(this) } />
             {
               this.state.data.map(function(curr, index) {
@@ -102,7 +105,7 @@ var Footer = React.createClass({
     return(
       <div>
         <br /><hr /><br />
-        <footer className="well">
+        <footer className="well alert alert-success">
           <p className="text-center">&copy; 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved</p>
         </footer>
       </div>
