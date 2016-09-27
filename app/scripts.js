@@ -4,7 +4,7 @@ const daniel = "http://www.freecodecamp.com/profoundhub";
 const recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
 const alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
 
-var TableTop = React.createClass({
+let TableTop = React.createClass({
   change: function(x) {
     this.props.changeSrc(x);
   },
@@ -12,17 +12,17 @@ var TableTop = React.createClass({
   render: function() {
     return (
       <tr id="header">
-        <th>Rank</th>
-        <th>Avatar</th>
-        <th>UserName</th>
+        <th><i className="fa fa-heartbeat" aria-hidden="true"></i> Rank</th>
+        <th><i className="fa fa-github-alt" aria-hidden="true"></i> Avatar</th>
+        <th><i className="fa fa-users" aria-hidden="true"></i> UserName</th>
 
         <th onClick = { this.change.bind(this, recent) }>
-          <i className="fa fa-check" aria-hidden="true"></i>
+          <i className="fa fa-area-chart" aria-hidden="true"></i>
             <a className="hvr-pulse">Recent</a>
         </th>
 
         <th onClick = { this.change.bind(this, alltime) }>
-          <i className="fa fa-check" aria-hidden="true"></i>
+          <i className="fa fa-line-chart" aria-hidden="true"></i>
             <a className="hvr-pulse">All Time</a>
         </th>
 
@@ -31,12 +31,12 @@ var TableTop = React.createClass({
   }
 });
 
-var Template = React.createClass({
+let Template = React.createClass({
   render: function() {
     return (
       <tr>
         <td>
-          { this.props.index }
+          { this.props.index }.
         </td>
         <td className="user">
           <p>
@@ -50,12 +50,12 @@ var Template = React.createClass({
         </td>
         <td>
           <p>
-            { this.props.data["alltime"] }
+            { this.props.data["recent"] } <i className="fa fa-diamond" aria-hidden="true"></i>
           </p>
         </td>
         <td>
           <p>
-            { this.props.data["recent"] }
+            { this.props.data["alltime"] } <i className="fa fa-diamond" aria-hidden="true"></i>
           </p>
         </td>
       </tr>
@@ -100,7 +100,7 @@ var LeaderBoard = React.createClass({
   }
 });
 
-var Footer = React.createClass({
+let Footer = React.createClass({
   render: function() {
     return(
       <div>
