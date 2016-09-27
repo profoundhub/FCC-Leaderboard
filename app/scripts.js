@@ -1,5 +1,4 @@
 const leaderboard = document.getElementById("leaderboard");
-
 const daniel = "http://www.freecodecamp.com/profoundhub";
 const recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
 const alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
@@ -55,7 +54,7 @@ let Template = React.createClass({
         </td>
         <td>
           <p>
-            { this.props.data["alltime"] } <i className="fa fa-diamond" aria-hidden="true"></i>
+            { this.props.data["alltime"] } <i className="fa fa-trophy" aria-hidden="true"></i>
           </p>
         </td>
       </tr>
@@ -106,7 +105,7 @@ let Footer = React.createClass({
       <div>
         <br /><hr /><br />
         <footer className="well alert alert-success">
-          <p className="text-center">&copy; 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved</p>
+          <p className="text-center">&copy; 2016 -- <a href={ daniel } target="_blank" className="userNames">Daniel Lim</a> | Profound Ideation Inc. | All Rights Reserved</p>
         </footer>
       </div>
     )
